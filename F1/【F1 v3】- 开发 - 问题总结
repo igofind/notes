@@ -1,8 +1,8 @@
 # 【F1 v3】- 开发问题总结
 
-### 代码方面
+## 代码方面
 
-#### ResourceManager.getInstance()的使用问题
+### ResourceManager.getInstance()的使用问题
 
 问题：在service中对`ResourceManager`声明全局变量时，启动微服务时可能会报空指针异常。
 
@@ -11,4 +11,25 @@
 ```
 
 解决：在需要使用`ResourceManager`的方法中直接使用`ResourceManager.getInstance().getDBSS("xxxSQL");`
+
+### bootstrap.properties
+
+微服务注册配置项要设置为 `true` ，否则不能注册到微服务中心：
+
+```properties
+eureka.client.registerWithEureka=true
+```
+
+
+
+## swagger
+
+认证配置地址要和项目启动的地址一样（同一台机器上！！）
+
+
+
+## 建模工具
+
+- [ ] 角色组怎么用的？
+- [ ] 与2.6的不同之处？
 
