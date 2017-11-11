@@ -1,0 +1,74 @@
+<templateSet group="F1-JQ">
+  <template name="deb" value="debugger" description="debugger" toReformat="true" toShortenFQNames="false">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="art" value="artDialog" description="artDialog" toReformat="true" toShortenFQNames="false">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="arta" value="artDialog.alert(&quot;$TIP$&quot;);" description="artDialog.alert()" toReformat="true" toShortenFQNames="false">
+    <variable name="TIP" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="artc" value="artDialog.confirm(&quot;$TIP$&quot;, function(){&#10;    // TODO&#10;    $END$&#10;});" description="artDialog.confirm" toReformat="true" toShortenFQNames="false">
+    <variable name="TIP" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="artaf" value="artDialog.alert(&quot;$TIP$&quot;, function(){&#10;    // TODO&#10;    $END$&#10;});" description="artDialog.alert + 回调函数" toReformat="true" toShortenFQNames="false">
+    <variable name="TIP" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="artm" value="artDialog({&#10;    id: &quot;&quot;, // TODO&#10;    title: &quot;$TITLE$&quot;, // TODO&#10;    fixed: true,&#10;    lock: true,&#10;    width: 900,&#10;    height: 600,&#10;    content: '&lt;div id=&quot;&quot;&gt;&lt;/div&gt;', // TODO&#10;    // okValue: &quot;确认&quot;,&#10;    // cancelValue: &quot;关闭&quot;,&#10;    onshow: function(){&#10;        // TODO &#10;    }&#10;}).showModal();" description="artDialog().showModal()" toReformat="true" toShortenFQNames="false">
+    <variable name="TITLE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="ajax" value="$.ajax({&#10;    url: &quot;&quot;,&#10;    type: &quot;POST&quot;,&#10;    dataType: &quot;json&quot;,&#10;    data: {&#10;        // TODO&#10;    }, &#10;    success: function(data, textStatus, jqXHR){&#10;        if (data[&quot;successful&quot;]) {&#10;            $SUCCESS$&#10;        }&#10;        artDialog.alert(data[&quot;resultHint&quot;]);&#10;    },&#10;    error: function(XMLHttpRequest, textStatus, errorThrown){&#10;        artDialog.alert(&quot;服务器异常，请联系管理员！&quot;);&#10;    }&#10;});" description="$.ajax" toReformat="true" toShortenFQNames="false">
+    <variable name="SUCCESS" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="filterMap" value="{&#10;    filterMap: [{&#10;        target: &quot;&quot;,&#10;        type: &quot;&quot;,&#10;        value: &quot;&quot;&#10;    }]&#10;}" description="filterMap" toReformat="true" toShortenFQNames="false">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="$" value="$(&quot;$END$&quot;)" description="$(&quot;&quot;)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="$f" value="$(function(){&#10;    // TODO &#10;    $END$&#10;});" description="$(function(){})" toReformat="true" toShortenFQNames="false">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="decimalOpt" value="var decimalOpts = {&#10;    allowedString: false, // 只能录入数字&#10;    allowDecimals: true, // 输入小数&#10;    plusminus: &quot;plus&quot;, // 在allowDecimals为true时应用该规则，默认为正负树都支持,plus为正数，minus为负数&#10;    allowNegative: false, // 不能是负数&#10;    decimalPrecision: 4, // 小数的精度&#10;    minValue: 0&#10;};" description="小数/数值校验的参数配置项" toReformat="true" toShortenFQNames="false">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="switch" value="switch ($target$) {&#10;    case &quot;$case$&quot;: // TODO &#10;        break;&#10;    case &quot;$case$&quot;: // TODO&#10;        break;&#10;    default:&#10;        break;&#10;}" description="switch/case/default" toReformat="false" toShortenFQNames="false">
+    <variable name="target" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="case" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="queryformOpt" value="var queryformOpt = {&#10;    rowFields: 4,&#10;    inputWidthp: 0.89,&#10;    labelAlign: &quot;right&quot;,&#10;    items: [&#10;        {&#10;            id: &quot;&quot;, // 不要重复&#10;            type: &quot;textfield&quot;,&#10;            label: &quot;&quot;,&#10;            maxLen: 20, // TODO&#10;            operate: new $.f1.like({&#10;                target: &quot;&quot; // TODO&#10;            })&#10;        }&#10;    ]&#10;};" description="queryformOpt" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+</templateSet>

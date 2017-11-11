@@ -1,0 +1,8 @@
+<templateSet group="my">
+  <template name="cg" value="console.log($end$);" description="console.log" toReformat="false" toShortenFQNames="true">
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+</templateSet>
