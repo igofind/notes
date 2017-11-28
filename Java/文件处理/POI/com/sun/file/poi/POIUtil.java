@@ -92,6 +92,11 @@ public class POIUtil {
             case Cell.CELL_TYPE_FORMULA:
                 value = cell.getCellFormula();
                 break;
+            // 错误的值
+            case Cell.CELL_TYPE_ERROR:
+                // 处理数据时，如果为空的话，判断为非法值
+                value = null;
+                break;
             // 空值
             default:
                 value = "";
