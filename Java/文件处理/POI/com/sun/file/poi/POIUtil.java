@@ -1,4 +1,4 @@
-package com.sun.file.poi;/*
+package com.jb.mains.util;/*
  * Copyright (C), 北京中恒博瑞数字电力技术有限公司，保留所有权利.
  * FileName: com.sun.file.poi.POIUtil.java
  * <author>         <date>          <version>           <desc>
@@ -41,25 +41,50 @@ public class POIUtil {
     }
 
     /**
-     * 工作表内单元格取值
+     * 按行取工作表内前5000行的数据，包含表头。
      *
      * @param sheet 要取值的工作表
      * @return Map
      */
     public static List<Object[]> readSheetToList(Sheet sheet) {
 
+        return readSheetToListWithLimit(sheet, 5000);
+    }
+
+    /**
+     * 按行取工作表内所有行的数据，包含表头。
+     *
+     * @param sheet   要取值的工作表
+     * @param rowSize 读取的行数
+     * @return Map
+     */
+    public static List<Object[]> readSheetToListWithLimit(Sheet sheet, int rowSize) {
+
         // 记录所有行的数据
         List<Object[]> rows = new ArrayList<Object[]>();
 
-        // 遍历所有行
-        for (Row row : sheet) {
+        // 列数
+        int colCnt = 0;
 
+        // 行数
+        int excelRowCnt = sheet.getLastRowNum() + 1;
+        if (excelRowCnt > rowSize) {
+            excelRowCnt = rowSize;
+        }
+
+        // 遍历所有行
+        for (int i = 0; i < excelRowCnt; i++) {
             // 记录每一行的数据
             List<Object> list = new ArrayList<Object>();
 
+            Row row = sheet.getRow(i);
+            if (i == 0) {
+                // 列数
+                colCnt = row.getLastCellNum();
+            }
             // 遍历所有列
-            for (Cell cell : row) {
-                list.add(getCellValue(cell));
+            for (int j = 0; j < colCnt; j++) {
+                list.add(getCellValue(row.getCell(j)));
             }
             rows.add(list.toArray());
         }
@@ -71,6 +96,9 @@ public class POIUtil {
      */
     public static Object getCellValue(Cell cell) {
         Object value = null;
+        if (cell == null) {
+            return null;
+        }
         switch (cell.getCellType()) {
             // 字符串
             case Cell.CELL_TYPE_STRING:
@@ -99,7 +127,7 @@ public class POIUtil {
                 break;
             // 空值
             default:
-                value = "";
+                value = null;
         }
         return value;
     }
